@@ -46,4 +46,9 @@ public final class AssertionFacade {
         var registerButton = elementFinder.findByCssSelector(".btn-secondary");
         assertThat(registerButton.getText().trim()).isEqualTo("Zaregistrujte se");
     }
+
+    public void checkPasswordFailPresense() {
+        var passwordfail = elementFinder.findByCssSelector(".invalid-feedback");
+        assertThat(passwordfail.getText().trim()).isEqualTo("Hesla se neshodují");
+    }
 }

@@ -22,12 +22,12 @@ final class ApplicationAction {
      * Click Vytvorit novou prihlasku on table view
      */
     void clickCreateNewApplicationButton() {
-        var createApplicationButton = elementFinder.findByXPath("/html/body/div/div/div/div/div/div[1]/a");
+        var createApplicationButton = elementFinder.findByCssSelector(".card-header .btn");
         createApplicationButton.click();
     }
 
     void selectProgrammingSection() {
-        var programmingSectionButton = elementFinder.findByXPath("//*[contains(text(), 'Programování')]//ancestor::*[@class='card']//a");
+        var programmingSectionButton = elementFinder.findByCssSelector(".card-body .btn");
         programmingSectionButton.click();
     }
 
@@ -35,7 +35,7 @@ final class ApplicationAction {
      * Click Vytvorit prihlasku for Javascript course
      */
     void clickCreateApplicationButton() {
-        var createApplicationButton = elementFinder.findByXPath("/html/body/div/div/div/div/div/div/div/div[2]/a");
+        var createApplicationButton = elementFinder.findByCssSelector(".btn");
         createApplicationButton.click();
     }
 
@@ -55,5 +55,17 @@ final class ApplicationAction {
         var firstApplicationEditButton = elementFinder.findByXPath(
                 "//tr[1]//a[@title='Upravit']");
         firstApplicationEditButton.click();
+    }
+
+    void cancelApplication() {
+        var firstApplicationDeleteButton = elementFinder.findByCssSelector(
+                ".btn-danger .fa");
+        firstApplicationDeleteButton.click();
+        var IllnessButton = elementFinder.findByCssSelector(
+                ".mr-5 .custom-control-label");
+        IllnessButton.click();
+        var RemovePupil = elementFinder.findByCssSelector(
+                ".btn.btn-primary");
+        RemovePupil.click();
     }
 }

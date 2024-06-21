@@ -14,13 +14,12 @@ final class LoginAction {
 
     private final ElementFinder elementFinder;
 
-    LoginAction(ElementFinder elementFinder)
-    {
+    LoginAction(ElementFinder elementFinder) {
         this.elementFinder = Objects.requireNonNull(elementFinder);
     }
 
     void clickLoginMenuLink() {
-        var loginButton = elementFinder.findByXPath("/html/body/div/header/nav/div/div[2]/a");
+        var loginButton = elementFinder.findByCssSelector(".navbar-right .nav-link");
         loginButton.click();
     }
 
@@ -48,5 +47,27 @@ final class LoginAction {
         signedInUserElement.click();
         var logoutButton = elementFinder.findByXPath("//*[@id='logout-link']");
         logoutButton.click();
+    }
+
+    void clickRegisterButton() {
+        var registerbutton = elementFinder.findByCssSelector(".ml-2");
+        registerbutton.click();
+    }
+
+    void insertName(String Name) {
+        var nameInputBox = elementFinder.findByXPath("//*[@id='name']");
+        nameInputBox.sendKeys(Name);
+    }
+
+    void insertConfirmPassword(String password) {
+        Objects.requireNonNull(password);
+
+        var confirmpasswordInputBox = elementFinder.findByXPath("//*[@id='password-confirm']");
+        confirmpasswordInputBox.sendKeys(password);
+    }
+
+    void clickSecondRegisterButton() {
+        var secondregisterbutton = elementFinder.findByCssSelector(".offset-md-4 .btn");
+        secondregisterbutton.click();
     }
 }

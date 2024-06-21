@@ -37,4 +37,5 @@ public final class ApplicationAssertion {
         assertThat(applicationsCountElement.getText()).contains("Zobrazeno " + applicationsNumber + " až " + applicationsNumber +
                 " záznamů z " + applicationsNumber);
     }
+
 }

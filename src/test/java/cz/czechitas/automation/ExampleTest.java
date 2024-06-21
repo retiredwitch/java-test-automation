@@ -16,6 +16,7 @@ final class ExampleTest extends TestRunner {
     void contactsPageUrlTest() {
         browser.headerMenu.goToContactsSection();
         asserter.checkPageUrl("www.czechitas.cz");
+
     }
 
     @Test
@@ -34,4 +35,6 @@ final class ExampleTest extends TestRunner {
         browser.headerMenu.goToKindergartenAndSchoolSection();
         browser.orderSection.insertICO(icoValue);
     }
+
+
 }
